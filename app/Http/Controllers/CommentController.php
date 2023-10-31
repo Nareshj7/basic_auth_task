@@ -21,13 +21,11 @@ class CommentController extends Controller
             'post_id' => 'required',
             'user_id' => 'required',
         ]);
-        $comment = new Comment();
-        $comment->body = $data['body'];
-        $comment->user_id = auth()->user()->id;
-        $comment->post_id = $data['post_id'];
-
-        $post->comments()->save($comment);
-
+        Comment::create([
+            'body' => $data['body'],
+            'post_id' => $data['post_id'],
+            'user_id' => auth()->user()->id,
+        ]);
         return redirect()->route('posts.index');
     }
 

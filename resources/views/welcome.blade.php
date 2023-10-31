@@ -31,19 +31,6 @@
                 </div>
             @endif
 
-                    @if ($posts)
-                    <br />
-                    <a href="{{ route('posts.create') }}" class="btn btn-success" style="float: right">Create Post</a>
-                    <ul style="color: #ef4444;" title="Posts"> Posts
-                        @foreach($posts as $post)
-                        <li>
-                            <a style="background-color: white;" href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
-                        </li>
-                        @endforeach
-                    </ul>
-                    @else
-                        <p>You haven't created any posts yet.</p>
-                    @endif
         </div>
     </body>
 </html>

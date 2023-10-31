@@ -2,7 +2,7 @@ Title: <h1>{{ $post->title }}</h1>
 Content: <h2>{{ $post->content }}</h2>
 
 @auth
-    <a href="{{ route('comments.create', $post) }}" class="btn btn-primary">Add Comment</a>
+    <a href="{{ route('comments.create', ['post' => $post->id]) }}" class="btn btn-primary">Add Comment</a>
     <br />
 @endauth
 

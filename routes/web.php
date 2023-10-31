@@ -19,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $posts = Post::all();
-    Log::info($posts);
-    return view('welcome', compact('posts'));
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -35,6 +33,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('posts', PostController::class);
     Route::resource('comments', CommentController::class);
+    Route::get('/comments/create/{post}', [CommentController::class, 'create'])->name('comments.create');
 });
 
 require __DIR__ . '/auth.php';
