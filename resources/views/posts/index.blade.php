@@ -1,3 +1,5 @@
+
+<a href="{{ route('posts.create') }}"> Create new post</a>
 @foreach ($posts as $post)
     <h1>{{$post->title}}</h1>
 
